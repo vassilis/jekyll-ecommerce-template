@@ -1,0 +1,85 @@
+
+
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-3">
+        <h3>{{ 'layout.footer.quick_links' | t }}</h3>
+        {% for link in linklists.footer.links %}
+        <ul class="list-unstyled">
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        </ul>
+        {% endfor %}
+      </div>
+      {% if shop.customer_accounts_enabled %}
+      <div class="col-md-3">
+        <h3>{{ 'layout.footer.customer_links'| t }}</h3>
+        <ul class="list-unstyled">
+          {% if customer %}
+          {% if customer.first_name != blank %}
+          <li>
+            {% capture first_name %}<a class="navbar-link" href="/account">{{ customer.first_name }}</a>{% endcapture %}
+            {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+          </li>
+          {% else %}
+          <li>
+            <a  href="/account">{{ 'layout.customer.account' | t }}</a>
+          </li>
+          {% endif %}
+          <li>
+            {{ 'layout.customer.log_out' | t | customer_logout_link }}
+          </li>
+          {% else %}
+          <li>
+            {{ 'layout.customer.log_in' | t | customer_login_link }}
+          </li>
+          {% if shop.customer_accounts_optional %}
+          <li>
+            {{ 'layout.customer.create_account' | t | customer_register_link }}
+          </li>
+          {% endif %}
+          {% endif %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if settings.footer_newsletter_enable %}
+      <div class="col-md-3">
+        {% comment %}
+        MailChimp is the go-to newsletter service for Shopify.
+        Use the link below to find your MailChimp form action
+        and insert it in your site settings.
+        MailChimp newsletter integration and requirement:
+        - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
+        {% endcomment %}
+        <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
+        {% if settings.newsletter_form_action != blank %}
+        {% assign form_action = settings.newsletter_form_action %}
+        {% else %}
+        {% assign form_action = '#' %}
+        {% endif %}
+        <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+          <div class="input-group">
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="form-control" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+            <span class="input-group-btn">
+              <input type="submit" class="btn btn-default" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+            </span>
+          </div>
+        </form>
+      </div>
+      {% endif %}
+      {% if settings.enable_footer_social %}
+      <div class="col-md-3">
+        <h3>{{ "layout.footer.social_title" | t }}</h3>
+        {% include "social-links" %}
+      </div>
+      {% endif %}
+      <div class="col-md-12 text-center">
+        <hr>
+        <small>{{ powered_by_link }}</small>
+      </div>
+    </div>
+  </div>
+</footer>

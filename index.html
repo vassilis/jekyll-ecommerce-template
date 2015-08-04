@@ -2,22 +2,180 @@
 layout: default
 ---
 
-<div class="home">
+<div class="container">
 
-  <h1 class="page-heading">Posts</h1>
+  <div id="carousel-example-generic" class="carousel slide home-carousel" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+    </ol>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <a href="">
+          <img src="//cdn.shopify.com/s/files/1/0750/5653/t/9/assets/slide_1.jpg?12062775601716630610" alt="Slide 1">
+        </a>
+        <div class="carousel-caption">
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img src="//cdn.shopify.com/s/files/1/0750/5653/t/9/assets/slide_2.jpg?12062775601716630610" alt="Slide 2">
+        </a>
+        <div class="carousel-caption">
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+        </div>
+      </div>
+      <div class="item">
+        <a href="">
+          <img src="//cdn.shopify.com/s/files/1/0750/5653/t/9/assets/slide_3.jpg?12062775601716630610" alt="Slide 3">
+        </a>
+        <div class="carousel-caption">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <h3>Featured Products</h3>
+  <div class="row products-grid">
+
+    <div class="col-md-3 col-sm-4 col-xs-6">
+      <div class="product-grid-item thumbnail">
+        <a href="/products/awesome-sneakers" class="grid__image">
+          <img class="grid-img" src="//cdn.shopify.com/s/files/1/0750/5653/products/ni313171_600_thum1_10_674_17041_large.jpeg?v=1429521033" alt="Awesome Sneakers">
+        </a>
+        <div class="product-caption">
+          <h5>
+            <a href="/products/awesome-sneakers">Awesome Sneakers</a>
+          </h5>
+          <p>
+            <strong>On Sale</strong> from €110.00
+            <br><s>€150.00</s>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-4 col-xs-6">
+      <div class="product-grid-item thumbnail">
+        <a href="/products/cool-kicks" class="grid__image">
+          <img class="grid-img" src="//cdn.shopify.com/s/files/1/0750/5653/products/jo340254_061_thum1___13873_large.jpeg?v=1427794308" alt="Cool Kicks">
+        </a>
+        <div class="product-caption">
+          <h5>
+            <a href="/products/cool-kicks">Cool Kicks</a>
+          </h5>
+          <p>
+            <strong>€120.00</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-4 col-xs-6">
+      <div class="product-grid-item thumbnail">
+        <a href="/products/gnarly-shoes-1" class="grid__image">
+          <img class="grid-img" src="//cdn.shopify.com/s/files/1/0750/5653/products/ASHL835-2616_thum1_62_529_16560_large.jpeg?v=1427794309" alt="Gnarly Shoes">
+        </a>
+        <div class="product-caption">
+          <h5>
+            <a href="/products/gnarly-shoes-1">Gnarly Shoes</a>
+          </h5>
+          <p>
+            <strong>€120.00</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <h3>Featured Collections</h3>
+
+  <div class="row products-grid">
+    <div class="col-md-3">
+      <div class="product-grid-item thumbnail">
+        <a href="/collections/spring-collection" class="grid__image">
+          <img class="grid-img" src="//cdn.shopify.com/s/files/1/0750/5653/products/ni313171_600_thum1_10_674_17041_large.jpeg?v=1429521033" alt="Awesome Sneakers">
+        </a>
+        <div class="product-caption text-center">
+          <h5>
+            <a href="/collections/spring-collection">Spring collection</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="product-grid-item thumbnail">
+        <a href="/collections/frontpage" class="grid__image">
+
+          <img class="grid-img" src="//cdn.shopify.com/s/files/1/0750/5653/products/ni313171_600_thum1_10_674_17041_large.jpeg?v=1429521033" alt="Awesome Sneakers">
+
+        </a>
+        <div class="product-caption text-center">
+          <h5>
+            <a href="/collections/frontpage">Frontpage</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="product-grid-item thumbnail">
+        <a href="/collections/summer" class="grid__image">
+          <img class="grid-img" src="//cdn.shopify.com/s/assets/admin/no-image-large-339e69e359cdf02ea76337381df99fa2.gif" alt="">
+        </a>
+        <div class="product-caption text-center">
+          <h5>
+            <a href="/collections/summer">summer</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="product-grid-item thumbnail">
+        <a href="/collections/spring-collection" class="grid__image">
+          <img class="grid-img" src="//cdn.shopify.com/s/files/1/0750/5653/products/ni313171_600_thum1_10_674_17041_large.jpeg?v=1429521033" alt="Awesome Sneakers">
+        </a>
+        <div class="product-caption text-center">
+          <h5>
+            <a href="/collections/spring-collection">Spring collection</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="home_page_content">
+    <h4>About Us</h4>
+    <p>
+    </p><p>A great About Us page helps builds trust between you and your customers. The more content you provide about you and your business, the more confident people will be when purchasing from your store.</p>
+    <p>Your About Us page might include:</p>
+    <ul>
+      <li>Who you are</li>
+      <li>Why you sell the items you sell</li>
+      <li>Where you are located</li>
+      <li>How long you have been in business</li>
+      <li>How long you have been running your online shop</li>
+      <li>Who are the people on your team</li>
+      <li>Contact information</li>
+      <li>Social links (Twitter, Facebook)</li>
+    </ul>
+    <p>To edit the content on this page, go to the <a href="/admin/pages">Pages</a> section of your Shopify admin.</p>
+    <p></p>
+  </div>
 
 </div>

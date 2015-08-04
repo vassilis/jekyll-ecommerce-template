@@ -1,0 +1,72 @@
+
+
+<nav class="navbar navbar-default main-nav">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" itemprop="url">
+        {% if settings.logo_use_image %}
+            <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+        {% else %}
+          {{ site.shop.name }}
+        {% endif %}
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        {% for link in linklists.main-menu.links %}
+         {% comment %}
+           Create a dropdown menu by naming a linklist the same as a link in the parent nav
+
+           More info on dropdowns:
+           - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
+         {% endcomment %}
+         {% assign child_list_handle = link.title | handleize %}
+         {% if linklists[child_list_handle].links != blank %}
+           <li class="dropdown{% if link.active %} active{% endif %}">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ link.title }} <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               {% for childlink in linklists[child_list_handle].links %}
+                 <li {% if childlink.active %} class="active"{% endif %}>
+                   <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                 </li>
+               {% endfor %}
+             </ul>
+           </li>
+           {% else %}
+           <li {% if link.active %}class="active"{% endif %}>
+             <a href="{{ link.url }}">{{ link.title }}</a>
+           </li>
+         {% endif %}
+       {% endfor %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/search">
+            <span class="glyphicon glyphicon-search"> </span>
+          </a>
+        </li>
+        <li>
+          <a href="/cart" aria-expanded="false">
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            {% comment %}
+
+            {{ 'layout.cart.title' | t }}
+            (<span id="CartCount">{{ cart.item_count }}</span>
+            {{ 'layout.cart.items_count' | t: count: cart.item_count }}
+            <span id="CartCost">{{ cart.total_price | money }}</span>)
+            {% endcomment %}
+          </a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

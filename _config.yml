@@ -12,3 +12,9 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+
+
+shop:
+  name: "Shop Name"
+  phone: "111 222 3333"
+  email: "email@shop-name.com"
