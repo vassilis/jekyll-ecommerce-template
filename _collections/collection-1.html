@@ -1,0 +1,12 @@
+---
+layout: default
+title: "Pandora: Miami Fashion Week 2014"
+id: "test"
+thumbnail: "pandora-miami-fashion-week-2014.jpg"
+---
+
+{% for product in site.products %}
+  {% if product.collection_name == page.id %}
+    {{ product.title }}<br>
+  {% endif %}
+{% endfor %}

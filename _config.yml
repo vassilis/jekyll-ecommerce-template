@@ -12,9 +12,21 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
-
+permalink: pretty
 
 shop:
   name: "Shop Name"
   phone: "111 222 3333"
   email: "email@shop-name.com"
+
+# Exclude directories and/or files from the conversion.
+exclude: []
+
+# Collections
+collections:
+  collections:
+    output: true
+    permalink: /:collection/:path/index.html
+  products:
+    output: true
+    permalink: /:collection/:path/index.html
