@@ -26,7 +26,7 @@ exclude: []
 collections:
   collections:
     output: true
-    permalink: /:collection/:path/index.html
+    permalink: /:collection/:path/
   products:
     output: true
-    permalink: /:collection/:path/index.html
+    permalink: /:collection/:path/
