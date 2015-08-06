@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: collection
 title: "Pandora: Miami Fashion Week 2014"
 id: "test"
 thumbnail: "pandora-miami-fashion-week-2014.jpg"
@@ -7,6 +7,6 @@ thumbnail: "pandora-miami-fashion-week-2014.jpg"
 
 {% for product in site.products %}
   {% if product.collection_name == page.id %}
-    {{ product.title }}<br>
+    {% include product-grid-item.html product=product %}
   {% endif %}
 {% endfor %}

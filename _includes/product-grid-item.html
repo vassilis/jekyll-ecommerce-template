@@ -1,0 +1,47 @@
+
+{% assign on_sale = false %}
+{% if include.product.compare_at_price > include.product.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if include.product.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+<div class="col-md-3 col-sm-4 col-xs-6">
+  <div class="product-grid-item thumbnail">
+    <a href="{{ include.product.urlj | within: collection }}" class="grid__image">
+      <img class="grid-img" src="{{ include.product.featured_image.src }}" alt="{{ include.product.featured_image.alt | escape }}"/>
+    </a>
+    <div class="product-caption">
+      <h5>
+        <a href="{{ include.product.urlj }}">{{ include.product.title }}</a>
+      </h5>
+      <p>
+        {% comment %}
+          You can show a leading 'from' or 'up to' by checking 'include.product.price_varies'
+          if your variants have different prices.
+        {% endcomment %}
+        {% if on_sale %}
+          {% if include.product.price_varies %}
+            {% assign sale_price = include.product.price | money %}
+            {{ 'products.include.product.on_sale_from_html' | t: price: sale_price }}
+          {% else %}
+            <span class="label label-info">On sale</span>
+            <strong>${{ include.product.price | money }}</strong>
+          {% endif %}
+        {% else %}
+          {% if include.product.price_varies %}{{ 'products.general.from' | t }}{% endif %}
+          <strong>${{ include.product.price }}</strong>
+        {% endif %}
+        {% if sold_out %}
+          <br><strong>Sold Out</strong>
+        {% endif %}
+        {% if on_sale %}
+          <br><s>{{ include.product.compare_at_price | money }}</s>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</div>
