@@ -1,0 +1,17 @@
+main-menu:
+  links:
+    - title: "Home"
+      url: "/"
+
+    - title: "Catalog"
+      url: "/collections/all"
+      catalog:
+        links:
+          - title: "test"
+            url: /collections/test
+
+    - title: "About us"
+      url: "/pages/about-us"
+
+    - title: "Contact us"
+      url: "/pages/contact-us"

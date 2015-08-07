@@ -22,21 +22,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        {% for link in linklists.main-menu.links %}
-         {% comment %}
-           Create a dropdown menu by naming a linklist the same as a link in the parent nav
-
-           More info on dropdowns:
-           - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
-         {% endcomment %}
-         {% assign child_list_handle = link.title | handleize %}
-         {% if linklists[child_list_handle].links != blank %}
+        {% for link in site.data.linklists.main-menu.links %}
+         {% assign child_list_handle = link.title | downcase | replace: " ", "-" %}
+         {% if link[child_list_handle].links != nil %}
            <li class="dropdown{% if link.active %} active{% endif %}">
              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ link.title }} <span class="caret"></span></a>
              <ul class="dropdown-menu">
-               {% for childlink in linklists[child_list_handle].links %}
+               {% for childlink in link[child_list_handle].links %}
                  <li {% if childlink.active %} class="active"{% endif %}>
-                   <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                   <a href="{{ childlink.url }}">{{ childlink.title }}</a>
                  </li>
                {% endfor %}
              </ul>
@@ -57,16 +51,9 @@
         <li>
           <a href="/cart" aria-expanded="false">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-            {% comment %}
-
-            {{ 'layout.cart.title' | t }}
-            (<span id="CartCount">{{ cart.item_count }}</span>
-            {{ 'layout.cart.items_count' | t: count: cart.item_count }}
-            <span id="CartCost">{{ cart.total_price | money }}</span>)
-            {% endcomment %}
           </a>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
