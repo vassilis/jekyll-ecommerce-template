@@ -1,4 +1,37 @@
 ---
-layout: default
+layout: page
+title: "Contact Us"
 permalink: /pages/contact-us/index.html
 ---
+
+  <div class="col-xs-6 col-xs-push-3">
+
+    <form accept-charset="UTF-8" action="#" class="contact-form" method="post"><input name="form_type" type="hidden" value="contact" />
+
+      <div class="form-group">
+        <label for="ContactFormName" class="hidden-label">Name</label>
+        <input type="text" id="ContactFormName" class="form-control" name="contact[name]" placeholder="Name" autocapitalize="words" value="">
+      </div>
+
+      <div class="form-group">
+        <label for="ContactFormEmail" class="hidden-label">Email</label>
+        <input type="email" id="ContactFormEmail" class="form-control" name="contact[email]" placeholder="Email" autocorrect="off" autocapitalize="off" value="">
+      </div>
+
+      <div class="form-group">
+        <label for="ContactFormPhone" class="hidden-label">Phone Number</label>
+        <input type="tel" id="ContactFormPhone" class="form-control" name="contact[phone-number]" placeholder="Phone Number" pattern="[0-9\-]*" value="">
+      </div>
+
+      <div class="form-group">
+        <label for="ContactFormMessage" class="hidden-label">Message</label>
+        <textarea rows="10" id="ContactFormMessage" class="form-control" name="contact[body]" placeholder="Message"></textarea>
+      </div>
+
+      <div class="form-group text-center">
+        <input type="submit" class="btn btn-primary btn-block" value="Send">
+      </div>
+
+    </form>
+
+  </div>
