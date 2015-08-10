@@ -5,8 +5,8 @@
 
     <div class="row">
       <div class="col-md-3">
-        <h3>{{ 'layout.footer.quick_links' | t }}</h3>
-        {% for link in linklists.footer.links %}
+        <h3>Quick Links</h3>
+        {% for link in site.data.linklists.footer.links %}
         <ul class="list-unstyled">
           <li>
             <a href="{{ link.url }}">{{ link.title }}</a>

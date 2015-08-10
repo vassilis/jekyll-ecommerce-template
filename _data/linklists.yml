@@ -15,3 +15,10 @@ main-menu:
 
     - title: "Contact us"
       url: "/pages/contact-us"
+footer:
+  links:
+    - title: "Search"
+      url: "/search"
+      
+    - title: "About us"
+      url: "/pages/about-us"
