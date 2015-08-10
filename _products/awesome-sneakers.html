@@ -2,10 +2,19 @@
 layout: default
 title: "Awesome Sneakers"
 collection_name: "test"
-featured_image:
-  src: "https://cdn.shopify.com/s/files/1/0750/5653/products/nike-shoe-black-and-white-isjymet2_medium.jpeg?v=1429521033"
-  alt: "Awesome Sneakers"
+images:
+  - src: "https://cdn.shopify.com/s/files/1/0750/5653/products/nike-shoe-black-and-white-isjymet2_medium.jpeg?v=1429521033"
+    alt: "Awesome Sneakers"
+
+  - src: "//cdn.shopify.com/s/files/1/0750/5653/products/ni313171_600_thum1_10_674_17041_compact.jpeg?v=1429521033"
+    alt: "Awesome Sneakers"
 price: 19.99
 urlj: "/collections/test/awesome-sneakers"
 description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+variants:
+  - available: true
+    id: 1
+    title: "red"
+    price: 19.99
 ---
+{% include product.html product = "Awesome Sneakers"  %}

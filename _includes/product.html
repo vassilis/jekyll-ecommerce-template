@@ -1,0 +1,111 @@
+{% assign param = include.product %}
+
+{% for prod in site.products %}
+  {% if prod.title == param %}
+    {% assign product = prod %}
+  {% endif %}
+{% endfor %}
+
+{% assign featured_image = product.images.first %}
+{% assign current_variant = product %}
+
+<div itemscope itemtype="http://schema.org/Product">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src }}">
+
+  {% comment %}
+    {% include 'breadcrumb' %}
+  {% endcomment %}
+
+  <div class="product-details">
+    <div class="row">
+      <div class="col-md-5 text-center">
+
+        <div class="product-single__photos" id="ProductPhoto">
+          <img class="product-img-featured" src="{{ featured_image.src }}" alt="{{ featured_image.alt }}" id="ProductPhotoImg">
+        </div>
+
+        {% if product.images.size > 1 %}
+          <div class="row" id="ProductThumbs">
+            {% for image in product.images %}
+              <div class="col-sm-3 product-alt-photos">
+                <div class="thumbnail">
+                  <a href="{{ image.src }}" class="product-single__thumbnail">
+                    <span class="hidden">{{ image.src }}</span>
+                    <img src="{{ image.src }}" alt="{{ image.alt }}">
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      </div>
+
+      <div class="col-md-7">
+
+        <h1 itemprop="name">{{ product.title }}</h1>
+
+        <hr>
+
+        {% unless product.description == "" %}
+          <div class="product-description rte text-justify" itemprop="description">
+            {{ product.description }}
+          </div>
+          <hr>
+        {% endunless %}
+
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+
+          <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+
+          <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-inline">
+            <div class="form-group">
+                <select name="id" id="productSelect" class="form-control product-single__variants">
+                  {% for variant in product.variants %}
+                    {% if variant.available %}
+                      <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price }}</option>
+                    {% else %}
+                      <option disabled="disabled">
+                        {{ variant.title }} - Sold Out
+                      </option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+            </div>
+
+            {% if product.variants.size > 1 %}<hr>{% endif %}
+            <hr>
+            <div class="form-group">
+              <span id="ProductPrice" class="h2" itemprop="price">
+                ${{ current_variant.price | money }}
+              </span>
+              {% if product.compare_at_price_max > product.price %}
+                <del>${{ current_variant.compare_at_price | money }}</del>
+              {% endif %}
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+              <button type="submit" name="add" id="AddToCart" class="btn btn-default">
+                <span id="AddToCartText">Add to cart</span>
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+      <div class="col-md-2 text-center hidden">
+        {% if settings.enable_social_product_sharing %}
+          <h4>{{ 'social.share_header'| t }}</h4>
+          {% include 'social-sharing' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
