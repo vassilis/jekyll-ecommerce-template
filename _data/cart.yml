@@ -1,0 +1,10 @@
+items:
+  - title: "Awesome Sneakers"
+    product:
+      title: "Awesome Sneakers"
+    url: "/products/awesome-sneakers"
+    price: 19.99
+    img: "https://cdn.shopify.com/s/files/1/0750/5653/products/nike-shoe-black-and-white-isjymet2_medium.jpeg?v=1429521033"
+    quantity: 1
+    variant:
+      title: "black"
