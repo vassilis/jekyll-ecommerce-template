@@ -1,0 +1,50 @@
+---
+layout: default
+title: "Search"
+permalink: "/search/index.html"
+---
+{% assign search = site.data.search %}
+
+<div class="row">
+  {% include search-bar.html %}
+</div>
+
+{% if search.performed %}
+  {% comment %}
+    paginate method goes here
+  {% endcomment %}
+
+  {% if search.results_count == 0 %}
+    <div class="alert alert-info">
+      <h2 class="text-center">Your search for "search term goes here" did not yield any results.</h2>
+    </div>
+  {% else %}
+    <div class="alert alert-success">
+      <h2 class="text-center">Your search for "search term goes here" revealed the following:</h2>
+    </div>
+
+    <div class="list-group">
+      {% for item in search.results %}
+        <a href="{{ item.url }}" title="{{ item.title }}" class="list-group-item">
+          <div class="clearfix">
+            <h3 class=text-center>{{ item.title }}</h3>
+            {% if item.vendor %}
+            <div class="row">
+              <div class="col-xs-3">
+                <img src="{{ item.img.src }}" alt="{{ item.img.alt }}" />
+              </div>
+              <div class="col-xs-6 text-justify">
+                {{ item.content | strip_html | truncatewords: 40 }}
+              </div>
+              <div class="col-xs-3 text-right">
+                {{ item.price | money }}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+{% endif %}
