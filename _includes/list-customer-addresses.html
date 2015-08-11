@@ -1,0 +1,39 @@
+{% comment %}
+  paginate method for customer.addresses goes here
+{% endcomment %}
+{% assign customer = site.data.customer %}
+<div class="row">
+  {% for address in customer.addresses %}
+    <div class="col-sm-4 clearfix">
+      <address>
+        <strong>{{ address.first_name | capitalize }} {{ address.last_name | capitalize }}</strong>
+        {% if address == customer.default_address %}(Default){% endif %}
+        <p>
+          {{ address.company }}<br>
+          {{ address.street }}<br>
+          {{ address.city | capitalize }},
+          {% if address.province_code %}
+            {{ address.province_code | upcase }},
+          {% endif %}
+          {{ address.zip | upcase }}<br>
+          {{ address.country }}<br>
+          {{ address.phone }}
+        </p>
+      </address>
+      <p>
+        <div class="btn btn-xs btn-default">
+          Edit
+        </div>
+        <div class="btn btn-xs btn-danger">
+          Delete
+        </div>
+      </p>
+    </div>
+    {% include edit-customer-address.html %}
+  {% endfor %}
+</div>
+{% if paginate.pages > 1 %}
+  <div class="text-center">
+    {% include 'pagination-custom' %}
+  </div>
+{% endif %}

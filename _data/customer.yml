@@ -1,0 +1,24 @@
+orders:
+  - name: "order001"
+    created_at: "May 06, 2015"
+    financial_status_label: "Authorized"
+    fulfillment_status_label: "Unfullfilled"
+    total_price: "$130.00"
+    customer_url: "/account/orders/order001"
+addresses_count: 1
+default_address:
+  address1: John Doe
+  address2: ""
+  city: "London"
+  province_code: "12345"
+  zip: "67890"
+  country: "England"
+  phone: "0123456789"
+addresses:
+  - address1: John Doe
+    address2: ""
+    city: "London"
+    province_code: "12345"
+    zip: "67890"
+    country: "England"
+    phone: "0123456789"

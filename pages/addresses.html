@@ -1,0 +1,33 @@
+---
+layout: default
+title: "Customer Addresses"
+permalink: "/account/addresses/index.html"
+---
+<div class="well">
+  <div class="row">
+    <div class="col-xs-6">
+      <h4>My Account</h4>
+    </div>
+    <div class="col-xs-6">
+      <a href="#" class="btn btn-primary pull-right" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">New address</a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <p><a href="/account" class="btn btn-default">Return to account details</a></p>
+  </div>
+  <div class="col-md-9">
+
+    {% comment %}
+      Add address form, hidden by default
+    {% endcomment %}
+
+    {% include add-customer-address.html %}
+    <h2>Your Addresses</h2>
+    <hr>
+    {% include list-customer-addresses.html %}
+
+  </div>
+</div>

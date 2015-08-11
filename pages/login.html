@@ -1,0 +1,68 @@
+---
+layout: default
+title: "Customer login"
+permalink: "/account/login/index.html"
+---
+<div class="row">
+
+  <div class="col-md-4 col-md-offset-4">
+
+    <div id="CustomerLoginForm">
+      <form accept-charset="UTF-8" action="https://three99-test.myshopify.com/account/login" id="customer_login" method="post" _lpchecked="1"><input name="form_type" type="hidden" value="customer_login"><input name="utf8" type="hidden" value="✓">
+
+              <h1>Login</h1>
+
+
+              <div class="form-group">
+                <label for="CustomerEmail" class="hidden">Email</label>
+                <input type="email" name="customer[email]" id="CustomerEmail" class="form-control" placeholder="Email" autocorrect="off" autocapitalize="off" autofocus="" autocomplete="off" style="cursor: auto; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDiIqO1Am6gAAAb1JREFUOMvNkk1rU0EUhp8zd0gCrdKFNgiCFatiIYgUKdW6aikuhIJF6kJcdFFEXAclzM0XJH9A6EL8BSoqZlEQCl0GEQU/qApdiYouKmgUbu7luGgC+boUuvLdvcPMc86c88J/p2w2e9g5d7btnXNTzrlM3H3TaZxzt1Kp1KaI3AcEEBFZFZFXvu9XBgFsjw9EZAjIOOeWVDUUkTMAqvppEEB6ve/7GyJyAfioqpGInALWi8XibCwgl8sdMcbsbzabf621Y8aYNRHxWpUjYFFVv4vIcBiGPyqVyuuuL1hrbwM3kslkf4Ud0BORnWattfeAld4hmr1uTVrTn1TVg6r6U0RGPc97DJh21V0Bncrn88+BOVV9Y4zp2v/w0RkWzo2w8aDG52BwDq4Ccy1b7iInJrh2fZbx8QxjQzFBAk4Aoaq+K5VKDztec3H5MmkAIppxSSyXy6UgCE5HUXQT0Pb58UvLTB34Qm1tE4CwEZ9EqtXq++6TUaYn0xD9YuZ8Gkgwv7LA1t2nbA8C9OsPH16+peGFpA6dZGQfbH/9RiOug379pl57RB1ITCxy58oxXjyrE8StsVOFQkF3w/8DCTuL1wm1OYIAAAAASUVORK5CYII=); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="CustomerPassword" class="hidden">Password</label>
+                <input type="password" value="" name="customer[password]" id="CustomerPassword" class="form-control" placeholder="Password" autocomplete="off" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDiIqO1Am6gAAAb1JREFUOMvNkk1rU0EUhp8zd0gCrdKFNgiCFatiIYgUKdW6aikuhIJF6kJcdFFEXAclzM0XJH9A6EL8BSoqZlEQCl0GEQU/qApdiYouKmgUbu7luGgC+boUuvLdvcPMc86c88J/p2w2e9g5d7btnXNTzrlM3H3TaZxzt1Kp1KaI3AcEEBFZFZFXvu9XBgFsjw9EZAjIOOeWVDUUkTMAqvppEEB6ve/7GyJyAfioqpGInALWi8XibCwgl8sdMcbsbzabf621Y8aYNRHxWpUjYFFVv4vIcBiGPyqVyuuuL1hrbwM3kslkf4Ud0BORnWattfeAld4hmr1uTVrTn1TVg6r6U0RGPc97DJh21V0Bncrn88+BOVV9Y4zp2v/w0RkWzo2w8aDG52BwDq4Ccy1b7iInJrh2fZbx8QxjQzFBAk4Aoaq+K5VKDztec3H5MmkAIppxSSyXy6UgCE5HUXQT0Pb58UvLTB34Qm1tE4CwEZ9EqtXq++6TUaYn0xD9YuZ8Gkgwv7LA1t2nbA8C9OsPH16+peGFpA6dZGQfbH/9RiOug379pl57RB1ITCxy58oxXjyrE8StsVOFQkF3w/8DCTuL1wm1OYIAAAAASUVORK5CYII=); background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
+              </div>
+
+                <p>
+                  <a href="#recover" id="RecoverPassword">Forgot your password?</a>
+                  <a class="pull-right" href="http://three99-test.myshopify.com">Return to Store</a>
+                </p>
+
+
+
+              <p>
+                <input type="submit" class="btn btn-primary" value="Sign In">
+              </p>
+
+            </form>
+    </div>
+
+    {% comment %}
+      JS shows/hides this form in timber.loginForms()
+    {% endcomment %}
+    <div id="RecoverPasswordForm" style="display: none;">
+
+      <h2>{{ 'customer.recover_password.title' | t }}</h2>
+      <p>{{ 'customer.recover_password.subtext' | t }}</p>
+
+      <form accept-charset="UTF-8" action="/account/recover" method="post" _lpchecked="1">
+        <input name="form_type" type="hidden" value="recover_customer_password"><input name="utf8" type="hidden" value="✓">
+
+        <div class="form-group">
+          <label for="RecoverEmail" class="hidden">Email</label>
+          <input class="form-control" type="email" value="" name="email" id="RecoverEmail" placeholder="Email" autocorrect="off" autocapitalize="off">
+        </div>
+
+        <p>
+          <input type="submit" class="btn btn-primary" value="Submit">
+          <button type="button" id="HideRecoverPasswordLink" class="btn btn-default pull-right">Cancel</button>
+        </p>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

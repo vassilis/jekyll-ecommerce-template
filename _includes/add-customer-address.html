@@ -1,0 +1,70 @@
+<div id="AddAddress" style="display: none;">
+  <form>
+    <h4>Add a new address</h4>
+
+    <div class="form-group">
+      <label for="AddressFirstNameNew" class="control-label">First Name</label>
+      <input type="text" id="AddressFirstNameNew" class="form-control" name="address[first_name]" value="{{ form.first_name }}" autocapitalize="words">
+    </div>
+
+    <div class="form-group">
+      <label for="AddressLastNameNew" class="control-label">Last Name</label>
+      <input type="text" id="AddressLastNameNew" class="form-control" name="address[last_name]" value="{{ form.last_name }}" autocapitalize="words">
+    </div>
+
+    <div class="form-group">
+      <label for="AddressCompanyNew">Company</label>
+      <input type="text" id="AddressCompanyNew" class="form-control" name="address[company]" value="{{ form.company }}" autocapitalize="words">
+    </div>
+
+    <div class="form-group">
+      <label for="AddressAddress1New">Address1</label>
+      <input type="text" id="AddressAddress1New" class="form-control" name="address[address1]" value="{{ form.address1 }}" autocapitalize="words">
+    </div>
+
+    <div class="form-group">
+      <label for="AddressAddress2New">Address2</label>
+      <input type="text" id="AddressAddress2New" class="form-control" name="address[address2]" value="{{ form.address2 }}" autocapitalize="words">
+    </div>
+
+
+    <div class="form-group">
+      <label for="AddressCityNew">City</label>
+      <input type="text" id="AddressCityNew" class="form-control" name="address[city]" value="{{ form.city }}" autocapitalize="words">
+    </div>
+
+    <div class="form-group">
+      <label for="AddressCountryNew">Country</label>
+      <select id="AddressCountryNew" class="form-control" name="address[country]" data-default="{{ form.country }}">{{ country_option_tags }}</select>
+    </div>
+
+    <div class="form-group" id="AddressProvinceContainerNew" style="display:none">
+      <label for="AddressProvinceNew">Province</label>
+      <select id="AddressProvinceNew" class="form-control" name="address[province]" data-default="{{ form.province }}"></select>
+    </div>
+
+    <div class="form-group">
+      <label for="AddressZipNew">Zip</label>
+      <input type="text" id="AddressZipNew" class="form-control" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters">
+    </div>
+
+    <div class="form-group">
+      <label for="AddressPhoneNew">Phone</label>
+      <input type="tel" id="AddressPhoneNew" class="form-control" name="address[phone]" value="{{ form.phone }}">
+    </div>
+
+    <div class="form-group">
+      <div class="checkbox" id="default_address_checkbox">
+        <label for="address_default_address_new"><input type="checkbox"> Set as default address</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <span class="pull-left"><input type="submit" class="btn btn-primary" value="Add"></span>
+        <span class="pull-right"><a href="#" class="btn btn-default" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">Cancel</a></span>
+      </div>
+    </div>
+
+  </form>
+</div>
