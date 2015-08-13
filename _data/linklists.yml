@@ -10,6 +10,9 @@ main-menu:
           - title: "test"
             url: /collections/test
 
+    - title: "Blog"
+      url: "/blogs/news"
+
     - title: "About us"
       url: "/pages/about-us"
 
@@ -19,6 +22,6 @@ footer:
   links:
     - title: "Search"
       url: "/search"
-      
+
     - title: "About us"
       url: "/pages/about-us"
