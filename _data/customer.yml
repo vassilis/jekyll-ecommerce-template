@@ -3,8 +3,36 @@ orders:
     created_at: "May 06, 2015"
     financial_status_label: "Authorized"
     fulfillment_status_label: "Unfullfilled"
-    total_price: "$130.00"
+    total_price: "$19.99"
+    subtotal_price: "$19.99"
     customer_url: "/account/orders/order001"
+    payment_status: "Authorized"
+    line_items:
+      - id: 1
+        title: "Awesome Sneakers"
+        sku: abc123456
+        price: 19.99
+        quantity: 1
+        product:
+          url: "/products/awesome_sneakers"
+        fulfillment:
+          created_at: "May 06, 2015"
+    billing_address:
+      name: John Doe
+      street: "John John"
+      city: "London"
+      province_code: "12345"
+      zip: "67890"
+      country: "England"
+      phone: "0123456789"
+    shipping_address:
+      name: John Doe
+      street: "John John"
+      city: "London"
+      province_code: "12345"
+      zip: "67890"
+      country: "England"
+      phone: "0123456789"
 addresses_count: 1
 default_address:
   address1: John Doe
