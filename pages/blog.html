@@ -27,7 +27,7 @@ permalink: "/blogs/news/index.html"
           <li><span class="glyphicon glyphicon-user">{{ author }}</span></li>
           <li><span class="glyphicon glyphicon-calendar">{{ date }}</span></li>
           {% if article.tags.size > 0 %}
-            <li><span class="glyphicon glyphicon-tags">{% include 'tags-article' %}</span></li>
+            <li><span class="glyphicon glyphicon-tags">{% include tags-article.html %}</span></li>
           {% endif %}
           {% if blog.comments_enabled? %}
             <li>

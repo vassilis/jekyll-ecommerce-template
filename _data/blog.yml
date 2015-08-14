@@ -1,8 +1,9 @@
 title: "News"
-all_tags: [milk, pumpkin pie, eggs, juice]
+all_tags: [news, fashion, industry]
 articles:
   - title: "First Blog Post"
     url: "/blogs/news/first-blog-post"
+    tags: [news]
     author: "John Doe"
     published_at: "August 07, 2015"
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non laoreet dui. Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.

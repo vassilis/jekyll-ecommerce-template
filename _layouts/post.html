@@ -3,6 +3,8 @@ layout: default
 ---
 {% assign article = site.data.blog.articles.first %}
 
+{% assign current_tags = article.tags %}
+
 <div class="row">
 
   <div class="col-md-9" itemscope itemtype="http://schema.org/Article">
@@ -16,7 +18,7 @@ layout: default
           <li><span class="glyphicon glyphicon-user">{{ author }}</span></li>
           <li><span class="glyphicon glyphicon-calendar">{{ date }}</span></li>
           {% if article.tags.size > 0 %}
-            <li><span class="glyphicon glyphicon-tags">{% include 'tags-article' %}</span></li>
+            <li><span class="glyphicon glyphicon-tags">{% include tags-article.html %}</span></li>
           {% endif %}
           {% if blog.comments_enabled? %}
             <li>

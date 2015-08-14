@@ -1,0 +1,5 @@
+{% if article.tags.size > 0 %}
+  {% for tag in article.tags %}
+    <a class="label label-default" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+  {% endfor %}
+{% endif %}
