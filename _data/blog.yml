@@ -1,4 +1,5 @@
 title: "News"
+all_tags: [milk, pumpkin pie, eggs, juice]
 articles:
   - title: "First Blog Post"
     url: "/blogs/news/first-blog-post"

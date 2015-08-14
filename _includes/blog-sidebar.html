@@ -1,0 +1,36 @@
+{% assign blog = site.data.blog %}
+{% assign current_tags = "milk"  %}
+{% comment %}
+  Recent blog posts
+{% endcomment %}
+<h4>Recent Articles</h4>
+<ul class="list-unstyled">
+  {% for article in site.posts limit:6 %}
+  <li>
+      <strong><a class="blog-post" href="{{ article.url }}">{{ article.title }}</a></strong>
+      <br>
+      <small class="text-muted">
+        {{ article.published_at }}
+      </small>
+  </li>
+  {% endfor %}
+</ul>
+
+<hr>
+{% comment %}
+  Blog tags
+{% endcomment %}
+{% if blog.all_tags.size > 0 %}
+  <h4>Tags</h4>
+  <div class="post">
+    <ul class="tags">
+      {% for tag in blog.all_tags %}
+        {% if current_tags contains tag %}
+          <li><a class="active" href="#">{{ tag }}</a></li>
+        {% else %}
+          <li><a href="#">{{ tag }}</a></li>
+        {%endif%}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
