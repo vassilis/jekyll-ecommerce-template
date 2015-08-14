@@ -1,15 +1,51 @@
 ---
 layout: default
 ---
-<div class="post">
+{% assign article = site.data.blog.articles.first %}
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+<div class="row">
 
-  <article class="post-content">
-    {{ content }}
-  </article>
+  <div class="col-md-9" itemscope itemtype="http://schema.org/Article">
 
+    <header>
+      <div>
+        <h2>{{ article.title }}</h2>
+        {% capture author %}{{ article.author }}{% endcapture %}
+        {% capture date %}{{ article.published_at }}{% endcapture %}
+        <ul class="list-inline text-muted">
+          <li><span class="glyphicon glyphicon-user">{{ author }}</span></li>
+          <li><span class="glyphicon glyphicon-calendar">{{ date }}</span></li>
+          {% if article.tags.size > 0 %}
+            <li><span class="glyphicon glyphicon-tags">{% include 'tags-article' %}</span></li>
+          {% endif %}
+          {% if blog.comments_enabled? %}
+            <li>
+              <a class="text-muted" href="#Comments"><span class="fa fa-comments-o"></span> {{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </header>
+
+    <div itemprop="articleBody" class="text-justify">
+      {{ article.content }}
+    </div>
+
+
+    {% comment %}
+      Create links to the next and previous articles, if available.
+    {% endcomment %}
+
+
+    {% comment %}
+      comments section goes here
+    {% endcomment %}
+
+  </div>
+{% comment %}
+
+  <div class="col-md-3" role="complementary">
+    {% include 'blog-sidebar' %}
+  </div>
+{% endcomment %}
 </div>

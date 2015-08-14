@@ -1,8 +1,75 @@
 ---
-layout: post
+layout: default
 title: "News"
 permalink: "/blogs/news/index.html"
 ---
-{% for post in site.posts %}
-  <a href="{{post.url}}">{{ post.title }}<br></a>
-{% endfor %}
+{% assign blog = site.data.blog %}
+<div class="row">
+
+
+  <div class="col-md-9">
+
+      <h1>{{ blog.title }}</h1>
+
+    {% comment %}
+      Loop through each article in your blog. This is limited to what you set for pagination above.
+
+      For more info on article liquid tags:
+        - http://docs.shopify.com/themes/liquid-variables/article
+    {% endcomment %}
+
+    {% for article in blog.articles %}
+      <div class="page-header">
+        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+        {% capture author %}{{ article.author }}{% endcapture %}
+        {% capture date %}{{ article.published_at }}{% endcapture %}
+        <ul class="list-inline text-muted">
+          <li><span class="glyphicon glyphicon-user">{{ author }}</span></li>
+          <li><span class="glyphicon glyphicon-calendar">{{ date }}</span></li>
+          {% if article.tags.size > 0 %}
+            <li><span class="glyphicon glyphicon-tags">{% include 'tags-article' %}</span></li>
+          {% endif %}
+          {% if blog.comments_enabled? %}
+            <li>
+              <a class="text-muted" href="{{ article.url }}#Comments">
+                <span class="fa fa-comments-o"></span>{{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      {% comment %}
+        Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
+        Since this is just a listing page, you can either use the excerpt or truncate the full article.
+      {% endcomment %}
+      <div class="rte text-justify">
+        {% if article.excerpt.size > 0 %}
+          {{ article.excerpt }}
+        {% else %}
+          <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+        {% endif %}
+      </div>
+
+      <p><a href="{{ article.url }}">Read more &rarr;</a></p>
+
+      {% unless forloop.last %}<hr class="blog">{% endunless %}
+
+    {% endfor %}
+
+    {% if paginate.pages > 1 %}
+      <div class="text-center">
+        {% include 'pagination-custom' %}
+      </div>
+    {% endif %}
+
+  </div>
+
+{% comment %}
+
+  <div class="col-md-3">
+    {% include 'blog-sidebar' %}
+  </div>
+{% endcomment %}
+
+</div>
