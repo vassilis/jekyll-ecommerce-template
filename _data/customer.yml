@@ -43,7 +43,8 @@ default_address:
   country: "England"
   phone: "0123456789"
 addresses:
-  - address1: John Doe
+  - id: 1
+    address1: John Doe
     address2: ""
     city: "London"
     province_code: "12345"
