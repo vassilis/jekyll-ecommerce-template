@@ -1,0 +1,12 @@
+<blockquote>
+
+  <p>
+    {{ comment.content }}
+  </p>
+
+  <footer>
+    {% capture author %}<strong>{{ comment.author }}</strong>{% endcapture %}
+    {% capture date %}<strong><time datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">{{ comment.created_at }}</time></strong>{% endcapture %}
+    {{ author }} on {{ date }}
+  </footer>
+</blockquote>

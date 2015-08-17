@@ -5,6 +5,8 @@ layout: default
 
 {% assign current_tags = article.tags %}
 
+{% assign number_of_comments = site.data.blog.articles.first.comments.size %}
+
 <div class="row">
 
   <div class="col-md-9" itemscope itemtype="http://schema.org/Article">
@@ -42,6 +44,100 @@ layout: default
     {% comment %}
       comments section goes here
     {% endcomment %}
+    <div id="Comments">
+
+      {% if comment and comment.created_at %}
+        <p class="note form-success">
+          {% if blog.moderated? %}
+            {{ 'blogs.comments.success_moderated' | t }}
+          {% else %}
+            {{ 'blogs.comments.success' | t }}
+          {% endif %}
+        </p>
+      {% endif %}
+
+      {% if number_of_comments > 0 %}
+        <ul class="list-unstyled">
+          {% comment %}
+            If a comment was just submitted with no blank field, show it.
+          {% endcomment %}
+          {% if comment and comment.created_at %}
+            <li id="{{ comment.id }}" class="comment first{% if article.comments_count == 0 %} last{% endif %}">
+              {% include 'comment' %}
+            </li>
+          {% endif %}
+
+          {% comment %}
+            Showing the rest of the comments.
+          {% endcomment %}
+          {% for comment in article.comments %}
+            <li id="{{ comment.id }}" class="comment{% unless number_of_comments > article.comments_count %}{% if forloop.first %} first{% endif %}{% endunless %}{% if forloop.last %} last {% endif %}">
+              {% include comment.html %}
+            </li>
+
+            {% unless forloop.last %}
+              <li><hr></li>
+            {% endunless %}
+          {% endfor %}
+        </ul>
+
+        {% if paginate.pages > 1 %}
+          <hr>
+          <div class="text-center">
+            {% include 'pagination-custom' %}
+          </div>
+        {% endif %}
+
+        <hr>
+
+      {% endif %}
+
+      {% comment %}
+        Comment submission form
+      {% endcomment %}
+        <form>
+
+          {% comment %}
+            #AddCommentTitle is used simply as an anchor link
+          {% endcomment %}
+          <h3 id="AddCommentTitle">Leave a comment</h3>
+
+          {{ form.errors | default_errors }}
+
+            <div class="form-group">
+              <label for="CommentAuthor" class="hidden-label">Name</label>
+              <input class="form-control {% if form.errors contains "author" %} has-error{% endif %}" type="text" name="comment[author]" placeholder="{{ 'blogs.comments.name' | t }}" id="CommentAuthor" value="{{ form.author }}" autocapitalize="words">
+            </div>
+
+            <div class="form-group">
+              <label for="CommentEmail" class="hidden-label">Email</label>
+              <input class="form-control {% if form.errors contains "email" %} has-error{% endif %}" type="email" name="comment[email]" placeholder="{{ 'blogs.comments.email' | t }}" id="CommentEmail" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+            </div>
+
+            <div class="form-group">
+              <label for="CommentBody" class="hidden-label">Message</label>
+              <textarea class="form-control {% if form.errors contains "body" %} has-error{% endif %}" name="comment[body]" id="CommentBody" placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
+            </div>
+
+          {% if blog.moderated? %}
+            <p>{{ 'blogs.comments.moderated' | t }}</p>
+          {% endif %}
+
+          <input type="submit" class="btn btn-primary" value="Post Comment">
+
+          {% comment %}
+            Assign variable to be used after timber.init() is run in theme.liquid
+          {% endcomment %}
+          {% if form.errors %}
+            {% assign newHash = 'AddCommentTitle' %}
+          {% endif %}
+
+          {% if form.posted_successfully? %}
+            {% assign newHash = 'Comments' %}
+          {% endif %}
+
+        </form>
+      </div>
 
   </div>
 
