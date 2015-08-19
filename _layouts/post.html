@@ -106,17 +106,17 @@ layout: default
 
             <div class="form-group">
               <label for="CommentAuthor" class="hidden-label">Name</label>
-              <input class="form-control {% if form.errors contains "author" %} has-error{% endif %}" type="text" name="comment[author]" placeholder="{{ 'blogs.comments.name' | t }}" id="CommentAuthor" value="{{ form.author }}" autocapitalize="words">
+              <input class="form-control {% if form.errors contains "author" %} has-error{% endif %}" type="text" name="comment[author]" placeholder="Name" id="CommentAuthor" value="{{ form.author }}" autocapitalize="words">
             </div>
 
             <div class="form-group">
               <label for="CommentEmail" class="hidden-label">Email</label>
-              <input class="form-control {% if form.errors contains "email" %} has-error{% endif %}" type="email" name="comment[email]" placeholder="{{ 'blogs.comments.email' | t }}" id="CommentEmail" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+              <input class="form-control {% if form.errors contains "email" %} has-error{% endif %}" type="email" name="comment[email]" placeholder="Email" id="CommentEmail" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
             </div>
 
             <div class="form-group">
               <label for="CommentBody" class="hidden-label">Message</label>
-              <textarea class="form-control {% if form.errors contains "body" %} has-error{% endif %}" name="comment[body]" id="CommentBody" placeholder="{{ 'blogs.comments.message' | t }}">{{ form.body }}</textarea>
+              <textarea class="form-control {% if form.errors contains "body" %} has-error{% endif %}" name="comment[body]" id="CommentBody" placeholder="Message">{{ form.body }}</textarea>
             </div>
 
           {% if blog.moderated? %}
