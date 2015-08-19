@@ -1,6 +1,5 @@
 ---
 layout: post
-permalink: /blogs/news/:title
 ---
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non laoreet dui. Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
 

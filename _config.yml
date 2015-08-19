@@ -30,6 +30,3 @@ collections:
   products:
     output: true
     permalink: /:collection/:path/
-
-linklist:
-  name: "main menu"
