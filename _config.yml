@@ -18,6 +18,8 @@ shop:
   name: "Shop Name"
   phone: "111 222 3333"
   email: "email@shop-name.com"
+  customer_accounts_enabled: true
+  customer_accounts_optional: true
 
 # Exclude directories and/or files from the conversion.
 exclude: []

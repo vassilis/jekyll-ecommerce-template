@@ -1,4 +1,6 @@
 {% assign settings = site.data.settings %}
+{% assign shop = site.shop %}
+{% assign customer = site.data.customer %}
 
 <footer class="site-footer">
   <div class="container">
@@ -15,35 +17,35 @@
         {% endfor %}
       </div>
       {% if shop.customer_accounts_enabled %}
-      <div class="col-md-3">
-        <h3>{{ 'layout.footer.customer_links'| t }}</h3>
-        <ul class="list-unstyled">
-          {% if customer %}
-          {% if customer.first_name != blank %}
-          <li>
-            {% capture first_name %}<a class="navbar-link" href="/account">{{ customer.first_name }}</a>{% endcapture %}
-            {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
-          </li>
-          {% else %}
-          <li>
-            <a  href="/account">{{ 'layout.customer.account' | t }}</a>
-          </li>
-          {% endif %}
-          <li>
-            {{ 'layout.customer.log_out' | t | customer_logout_link }}
-          </li>
-          {% else %}
-          <li>
-            {{ 'layout.customer.log_in' | t | customer_login_link }}
-          </li>
-          {% if shop.customer_accounts_optional %}
-          <li>
-            {{ 'layout.customer.create_account' | t | customer_register_link }}
-          </li>
-          {% endif %}
-          {% endif %}
-        </ul>
-      </div>
+        <div class="col-md-3">
+          <h3>Customers</h3>
+          <ul class="list-unstyled">
+            {% if customer %}
+              {% if customer.first_name != blank %}
+              <li>
+                {% capture first_name %}<a class="navbar-link" href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                Logged in as: {{ first_name }}
+              </li>
+              {% else %}
+              <li>
+                <a  href="/account">{{ 'layout.customer.account' | t }}</a>
+              </li>
+              {% endif %}
+              <li>
+                Logout
+              </li>
+              {% else %}
+              <li>
+                Login
+              </li>
+              {% if shop.customer_accounts_optional %}
+                <li>
+                  <a href="/account/register">Create account</a>
+                </li>
+              {% endif %}
+            {% endif %}
+          </ul>
+        </div>
       {% endif %}
       {% if settings.footer_newsletter_enable %}
         <div class="col-md-3">
