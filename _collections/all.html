@@ -1,0 +1,7 @@
+---
+layout: collection
+permalink: /collections/all/index.html
+---
+{% for product in site.products %}
+  {% include product-grid-item.html product=product %}
+{% endfor %}
