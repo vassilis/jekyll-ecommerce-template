@@ -1,0 +1,29 @@
+---
+layout: default
+permalink: /products/index.html
+---
+{% assign collections =  site.collections.collections.docs %}
+
+{% for collection in collections %}
+
+  {% unless collection.handle == 'frontpage' or collection.all_products_count == 0 %}
+
+    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+
+      <div class="pull-left collection-header">{{ collection_title }}</div>
+      <div class="pull-right col-md-offset-6">
+        <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}">More {{ collection_title }} &rsaquo;</a>
+      </div>
+
+    <div class="row">
+      {% for product in site.products limit:4 %}
+        {% if product.collection_name == collection.id %}
+          {% include product-grid-item.html product=product %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% unless forloop.last %}<hr>{% endunless %}
+  {% endunless %}
+
+{% endfor %}
