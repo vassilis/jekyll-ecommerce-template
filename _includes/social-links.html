@@ -1,0 +1,17 @@
+<ul class="list-inline social-icons">
+  {% if settings.facebook_url != blank %}
+    <li><a href="{{ settings.facebook_url }}"><i class="fa fa-facebook-square"></i><span class="social-titles"></span></a></li>
+  {% endif %}
+  {% if settings.twitter_url != blank %}
+    <li><a href="{{ settings.twitter_url }}"><i class="fa fa-twitter-square"></i><span class="social-titles"></span></a></li>
+  {% endif %}
+  {% if settings.google_plus_url != blank %}
+    <li><a href="{{ settings.google_plus_url }}"><i class="fa fa-google-plus-square"></i><span class="social-titles"></span></a></li>
+  {% endif %}
+  {% if settings.instagram_url != blank %}
+    <li><a href="{{ settings.instagram_url }}"><i class="fa fa-instagram"></i><span class="social-titles"></span></a></li>
+  {% endif %}
+  {% if settings.pinterest_url != blank %}
+    <li><a href="{{ settings.pinterest_url }}"><i class="fa fa-pinterest-square"></i><span class="social-titles"></span></a></li>
+  {% endif %}
+</ul>
