@@ -7,6 +7,8 @@ layout: default
 
 {% assign number_of_comments = site.data.blog.articles.first.comments.size %}
 
+{% include breadcrumb.html type="post" post=article %}
+
 <div class="row">
 
   <div class="col-md-9" itemscope itemtype="http://schema.org/Article">

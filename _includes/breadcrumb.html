@@ -1,0 +1,22 @@
+{% if include.type == "prod" %}
+  {% assign first_text = "Catalog" %}
+  {% assign first_href = "/collections/all" %}
+  {% assign second_is_last = true %}
+  {% assign second_text = include.product.title %}
+  {% assign second_href = include.product.url %}
+{% elsif include.type == "post" %}
+  {% assign first_text = "Home" %}
+  {% assign first_href = "/blogs/news/" %}
+  {% assign second_is_last = true %}
+  {% assign second_text = include.post.title %}
+  {% assign second_href = include.post.url %}
+{% endif %}
+
+<ol class = "breadcrumb">
+  <li><a href="{{ first_href }}">{{ first_text }}</a></li>
+  {% if second_is_last %}
+    <li class="active">{{ second_text }}</li>
+  {% else %}
+    <li><a href="{{ second_href }}">{{ second_text }}</a></li>
+  {% endif %}
+</ol>

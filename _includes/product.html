@@ -14,9 +14,7 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src }}">
 
-  {% comment %}
-    {% include 'breadcrumb' %}
-  {% endcomment %}
+  {% include breadcrumb.html type="prod" product=product %}
 
   <div class="product-details">
     <div class="row">
