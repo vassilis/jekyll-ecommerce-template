@@ -68,3 +68,17 @@ body {
     margin-right: 0;
   }
 }
+
+.carousel-caption {
+  font-size: 2em;
+  background: rgba(black, .2);
+  padding: 10px;
+  bottom: 40px;
+}
+
+.carousel-indicators {
+  bottom: 0;
+  li {
+    border-radius: 1px;
+  }
+}
