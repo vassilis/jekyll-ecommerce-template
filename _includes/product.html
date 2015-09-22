@@ -25,8 +25,8 @@
       <div class="col-md-6 text-center">
 
         <div id="ProductPhoto">
-          <!-- <img class="product-img-featured img-responsive img-thumbnail" src="{{ featured_image.src1 }}" alt="{{ featured_image.alt }}" id="ProductPhotoImg"> -->
-          <img src="https://placeimg.com/555/400/{{ product.id }}" alt="{{ product.title }}" class="img-responsive img-thumbnail">
+          <!-- <img class="product-img-featured img-responsive img-thumbnail" src="{ featured_image.src1 }" alt="{ featured_image.alt }" id="ProductPhotoImg"> -->
+          <img src="http://lorempixel.com/g/555/400/technics?random={{ product.id }}" alt="{{ product.title }}" class="img-responsive img-thumbnail">
         </div>
 
         {% if product.images.size > 1 %}
@@ -38,7 +38,7 @@
                   <!-- <a href="{{ image.src1 }}" class="product-single__thumbnail"> -->
                     <!-- <span class="hidden">{{ image.src }}</span> -->
                     <img src="{{ image.src3 }}" alt="{{ image.alt }}">
-                    <img src="https://placeimg.com/155/155/{{ i }}" alt="{{ product.title }}">
+                    <img src="http://lorempixel.com/g/155/155/technics?random={{ i }}" alt="{{ product.title }}">
                   <!-- </a> -->
                 </div>
               </div>

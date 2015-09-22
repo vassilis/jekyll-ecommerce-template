@@ -113,9 +113,12 @@ div.owl-theme .owl-controls .owl-page span {
 }
 
 .grid-img-outer {
-   height: 253px;
+   min-height: 100px;
    background: url("/img/loader.gif") 50% 50% no-repeat #E7E7E7;
    border-radius: 4px;
    display: block;
    overflow: hidden;
+   > img {
+     width: 100%;
+   }
 }
