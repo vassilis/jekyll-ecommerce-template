@@ -1,5 +1,5 @@
 title: "News"
-all_tags: [news, fashion, industry]
+all_tags: [News, Fashion, Industry]
 articles:
   - title: "First Blog Post"
     url: "/2015/08/13/first-blog-post/"
