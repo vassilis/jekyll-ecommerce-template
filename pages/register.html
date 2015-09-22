@@ -1,0 +1,39 @@
+---
+layout: default
+title: "Create Account"
+permalink: "/account/register/index.html"
+---
+
+<div class="row">
+
+  <div class="col-md-4 col-md-offset-4">
+
+    <h1>{{ 'customer.register.title' | t }}</h1>
+
+    <form>
+
+      <div class="form-group">
+        <label for="FirstName" class="hidden">First Name</label>
+        <input type="text" name="customer[first_name]" id="FirstName" class="form-control" placeholder="First Name" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+      </div>
+      <div class="form-group">
+        <label for="LastName" class="hidden">Last Name</label>
+        <input type="text" name="customer[last_name]" id="LastName" class="form-control" placeholder="Last Name" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+      </div>
+      <div class="form-group">
+        <label for="Email" class="hidden">Email</label>
+        <input type="email" name="customer[email]" id="Email" class="form-control{% if form.errors contains 'email' %} has-error{% endif %}" placeholder="Email" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+      </div>
+      <div class="form-group">
+        <label for="CreatePassword" class="hidden">Password</label>
+        <input type="password" name="customer[password]" id="CreatePassword" class="form-control{% if form.errors contains 'password' %} has-error{% endif %}" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Create Account" class="pull-left btn btn-primary">
+        <a class="pull-right" href="{{ shop.url }}">Cancel</a>
+      </div>
+    </form>
+
+  </div>
+
+</div>
