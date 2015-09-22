@@ -18,22 +18,24 @@
 
   <div class="product-details">
     <div class="row">
-      <div class="col-md-5 text-center">
+      <div class="col-md-6 text-center">
 
-        <div class="product-single__photos" id="ProductPhoto">
-          <img class="product-img-featured img-responsive img-thumbnail" src="{{ featured_image.src1 }}" alt="{{ featured_image.alt }}" id="ProductPhotoImg">
+        <div id="ProductPhoto">
+          <!-- <img class="product-img-featured img-responsive img-thumbnail" src="{{ featured_image.src1 }}" alt="{{ featured_image.alt }}" id="ProductPhotoImg"> -->
+          <img src="https://placeimg.com/555/400/{{ product.id }}" alt="{{ product.title }}" class="img-responsive img-thumbnail">
         </div>
 
         {% if product.images.size > 1 %}
           <br>
           <div class="row" id="ProductThumbs">
-            {% for image in product.images %}
+            {% for i in (1..6) %}
               <div class="col-sm-4 product-alt-photos">
                 <div class="thumbnail">
-                  <a href="{{ image.src1 }}" class="product-single__thumbnail">
-                    <span class="hidden">{{ image.src }}</span>
+                  <!-- <a href="{{ image.src1 }}" class="product-single__thumbnail"> -->
+                    <!-- <span class="hidden">{{ image.src }}</span> -->
                     <img src="{{ image.src3 }}" alt="{{ image.alt }}">
-                  </a>
+                    <img src="https://placeimg.com/155/155/{{ i }}" alt="{{ product.title }}">
+                  <!-- </a> -->
                 </div>
               </div>
             {% endfor %}
@@ -42,7 +44,7 @@
 
       </div>
 
-      <div class="col-md-7">
+      <div class="col-md-6">
 
         <h1 itemprop="name">{{ product.title }}</h1>
 
