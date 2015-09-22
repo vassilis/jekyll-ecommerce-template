@@ -1,0 +1,25 @@
+
+
+<link rel="stylesheet" href="/assets/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="/assets/owl-carousel/owl.theme.css">
+<link rel="stylesheet" href="/assets/owl-carousel/owl.transitions.css">
+<script src="/assets/owl-carousel/owl.carousel.min.js"></script>
+
+<div id="owl-carousel" class="owl-carousel">
+  {% for i in (1..3) %}
+    <div class="item">
+      <img src="https://placeimg.com/1170/500/{{ i }}" alt="Slide {{ i }}" style="height:500px;">
+    </div>
+  {% endfor %}
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#owl-carousel").owlCarousel({
+      // navigation : true,
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem: true
+    });
+  });
+</script>

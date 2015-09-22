@@ -52,6 +52,10 @@
         // "syntax-highlighting"
 // ;
 
+html,body {
+  overflow-x: hidden;
+}
+
 body {
   margin-bottom: 200px;
 }
@@ -69,8 +73,20 @@ body {
   }
 }
 
-.carousel {
-  background: #E7E7E7;
+.owl-carousel {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px #DDD solid;
+  padding: 4px;
+  .item {
+    border-radius: 4px;
+    overflow: hidden;
+    background: url("/img/loader.gif") 50% 50% no-repeat #E7E7E7;
+  }
+}
+
+div.owl-theme .owl-controls .owl-page span {
+  background: #DDD;
 }
 
 .carousel-caption {
