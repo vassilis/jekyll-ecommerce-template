@@ -7,121 +7,29 @@ layout: default
 <br>
 
 <h3>Featured Products</h3>
-<div class="row products-grid">
-
-  <div class="col-md-3 col-sm-4 col-xs-6">
-    <div class="thumbnail">
-      <a href="/products/awesome-sneakers">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="Product Title">
-      </a>
-      <div class="caption">
-        <h5><a href="/products/awesome-sneakers">Product Title</a></h5>
-        <p>
-          <strong><s>€150.00</s></strong>
-          <strong class="text-warning">€110.00</strong>
-          <span class="text-warning">On Sale</span>
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-4 col-xs-6">
-    <div class="thumbnail">
-      <a href="/products/cool-kicks">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="Product Title">
-      </a>
-      <div class="caption">
-        <h5>
-          <a href="/products/cool-kicks">Product Title</a>
-        </h5>
-        <p>
-          <strong>€120.00</strong>
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-4 col-xs-6">
-    <div class="thumbnail">
-      <a href="/products/gnarly-shoes-1">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="Product Title">
-      </a>
-      <div class="caption">
-        <h5>
-          <a href="/products/gnarly-shoes-1">Product Title</a>
-        </h5>
-        <p>
-          <strong>€120.00</strong>
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-4 col-xs-6">
-    <div class="thumbnail">
-      <a href="/products/gnarly-shoes-1">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="Product Title">
-      </a>
-      <div class="caption">
-        <h5>
-          <a href="/products/gnarly-shoes-1">Product Title</a>
-        </h5>
-        <p>
-          <strong>€120.00</strong>
-        </p>
-      </div>
-    </div>
-  </div>
+<div class="row">
+  {% for product in site.products | limit: 8 %}
+    {% include product-grid-item.html product=product %}
+  {% endfor %}
 </div>
 
 <h3>Featured Collections</h3>
 
-<div class="row products-grid">
-  <div class="col-md-3">
-    <div class="thumbnail">
-      <a href="/collections/spring-collection">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="Collection Title">
-      </a>
-      <div class="caption text-center">
-        <h5>
-          <a href="/collections/spring-collection">Collection Title</a>
-        </h5>
+<div class="row">
+  {% for i in (1..4) %}
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <a href="/collections/test">
+          <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=img&w=300&h=300" alt="Collection Title">
+        </a>
+        <div class="caption text-center">
+          <h5>
+            <a href="/collections/test">Collection {{i}} Title</a>
+          </h5>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
-    <div class="thumbnail">
-      <a href="/collections/frontpage">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="Collection Title">
-      </a>
-      <div class="caption text-center">
-        <h5>
-          <a href="/collections/frontpage">Collection Title</a>
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="thumbnail">
-      <a href="/collections/summer">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="">
-      </a>
-      <div class="caption text-center">
-        <h5>
-          <a href="/collections/summer">Collection Title</a>
-        </h5>
-      </div>
-    </div>
-    </div>
-  <div class="col-md-3">
-    <div class="thumbnail">
-      <a href="/collections/spring-collection">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=PRODUCT&w=300&h=300" alt="Collection Title">
-      </a>
-      <div class="caption text-center">
-        <h5>
-          <a href="/collections/spring-collection">Collection Title</a>
-        </h5>
-      </div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 
 <div class="home_page_content hidden">
