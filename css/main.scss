@@ -70,7 +70,7 @@ body {
 }
 
 .carousel {
-  background: #222;
+  background: #E7E7E7;
 }
 
 .carousel-caption {
@@ -94,4 +94,12 @@ body {
   line-height: 1;
   padding: 3px 8px;
   transform: rotate(-45deg);
+}
+
+.grid-img-outer {
+   height: 253px;
+   background: url("/img/loader.gif") 50% 50% no-repeat #E7E7E7;
+   border-radius: 4px;
+   display: block;
+   overflow: hidden;
 }
