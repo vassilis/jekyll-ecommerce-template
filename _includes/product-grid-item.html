@@ -13,7 +13,7 @@
 <div class="col-md-3 col-sm-4 col-xs-6">
   <div class="product-grid-item thumbnail">
     <a href="{{ product.url }}" class="grid__image">
-      <img class="grid-img" src="{{ featured_image.src }}" alt="{{ featured_image.alt }}"/>
+      <img class="grid-img" src="{{ featured_image.src2 }}" alt="{{ featured_image.alt }}"/>
     </a>
     <div class="product-caption">
       <h5>
@@ -37,10 +37,10 @@
           <strong>${{ product.price }}</strong>
         {% endif %}
         {% if sold_out %}
-          <br><strong>Sold Out</strong>
+          <strong>Sold Out</strong>
         {% endif %}
         {% if on_sale %}
-          <br><s>{{ product.compare_at_price | money }}</s>
+          <s>{{ product.compare_at_price | money }}</s>
         {% endif %}
       </p>
     </div>

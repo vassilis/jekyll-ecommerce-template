@@ -12,7 +12,7 @@
 <div itemscope itemtype="http://schema.org/Product">
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-  <meta itemprop="image" content="{{ product.featured_image.src }}">
+  <meta itemprop="image" content="{{ product.featured_image.src1 }}">
 
   {% include breadcrumb.html type="prod" product=product %}
 
@@ -21,17 +21,18 @@
       <div class="col-md-5 text-center">
 
         <div class="product-single__photos" id="ProductPhoto">
-          <img class="product-img-featured" src="{{ featured_image.src }}" alt="{{ featured_image.alt }}" id="ProductPhotoImg">
+          <img class="product-img-featured img-responsive img-thumbnail" src="{{ featured_image.src1 }}" alt="{{ featured_image.alt }}" id="ProductPhotoImg">
         </div>
 
         {% if product.images.size > 1 %}
+          <br>
           <div class="row" id="ProductThumbs">
             {% for image in product.images %}
               <div class="col-sm-3 product-alt-photos">
                 <div class="thumbnail">
-                  <a href="{{ image.src }}" class="product-single__thumbnail">
+                  <a href="{{ image.src1 }}" class="product-single__thumbnail">
                     <span class="hidden">{{ image.src }}</span>
-                    <img src="{{ image.src }}" alt="{{ image.alt }}">
+                    <img src="{{ image.src3 }}" alt="{{ image.alt }}">
                   </a>
                 </div>
               </div>
