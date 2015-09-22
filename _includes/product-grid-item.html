@@ -6,15 +6,15 @@
 {% endif %}
 
 {% assign sold_out = true %}
-{% if product..available %}
+{% if product.available %}
   {% assign sold_out = false %}
 {% endif %}
 
 <div class="col-md-3 col-sm-4 col-xs-6">
   <div class="thumbnail">
     <a href="{{ product.url }}">
-      <!-- <img src="{{ featured_image.src2 }}" alt="{{ featured_image.alt }}"> -->
-      <img src="https://placeimg.com/253/253/{{ product.id }}" alt="">
+      <!-- <img src="{ featured_image.src2 }" alt="{ featured_image.alt }"> -->
+      <img src="https://placeimg.com/253/253/{{ product.id }}" alt="" style="height:253px;background:#222;">
     </a>
     <div class="caption">
       <h5>
@@ -25,23 +25,22 @@
           You can show a leading 'from' or 'up to' by checking 'product.price_varies'
           if your variants have different prices.
         {% endcomment %}
-        {% if on_sale %}
+
+        {% if sold_out %}
+          <strong>Sold Out</strong>
+        {% elsif on_sale %}
           {% if product.price_varies %}
             {% assign sale_price = product.price | money %}
             {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
           {% else %}
-            <span class="label label-info">On sale</span>
             <strong>${{ product.price | money }}</strong>
+            <span class="label label-danger label-onsale pull-right">ON SALE</span>
           {% endif %}
+          &nbsp;
+          <s class="text-muted">${{ product.compare_at_price | money }}</s>
         {% else %}
           {% if product.price_varies %}{{ 'products.general.from' | t }}{% endif %}
-          <strong>${{ product.price }}</strong>
-        {% endif %}
-        {% if sold_out %}
-          <strong>Sold Out</strong>
-        {% endif %}
-        {% if on_sale %}
-          <s>{{ product.compare_at_price | money }}</s>
+          <strong>${{ product.price | money }}</strong>
         {% endif %}
       </p>
     </div>

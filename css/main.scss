@@ -69,6 +69,10 @@ body {
   }
 }
 
+.carousel {
+  background: #222;
+}
+
 .carousel-caption {
   font-size: 2em;
   background: rgba(black, .2);
@@ -81,4 +85,13 @@ body {
   li {
     border-radius: 1px;
   }
+}
+
+.label-onsale {
+  position: absolute;
+  top: 13px;
+  left: 5px;
+  line-height: 1;
+  padding: 3px 8px;
+  transform: rotate(-45deg);
 }
