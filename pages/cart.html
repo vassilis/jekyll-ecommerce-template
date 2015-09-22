@@ -16,44 +16,36 @@ permalink: /cart/index.html
 
     <div class="row">
       <div class="col-md-8">
-        <div class="panel panel-default">
-          <div class="list-group">
-            {% for item in cart.items %}
-              <div class="list-group-item">
-                <div class="row">
-                  <div class="col-xs-3">
-                    <div class="image-wrapper cart-img">
-                      <a href="{{ item.url }}" class="cart__image">
-                        {% comment %}
-                          More image size options at:
-                            - http://docs.shopify.com/themes/filters/product-img-url
-                        {% endcomment %}
-                        <img class="grid-img" src="{{ item.img }}" alt="{{ item.title }}">
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-xs-8">
-                    <h4>
-                      <a href="{{ item.url }}"> {{ item.product.title }} </a>
-                      {% unless item.variant.title contains 'Default' %}
-                        <small>{{ item.variant.title }}</small>
-                      {% endunless %}
-                    </h4>
-                    <h3>{{ item.price | money }}</h3>
-                    <p>
-                      <label for="updates_{{ item.id }}">Quantity</label>
-                      <input class="form-control quantity-textbox" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" style="width: 80px;">
-                    </p>
-                    <p>
-                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-                        <small>Remove</small>
-                      </a>
-                    </p>
-                  </div>
+        <div class="list-group">
+          {% for item in cart.items %}
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-xs-3">
+                  <a href="{{ item.url }}">
+                    <img src="{{ item.img }}" alt="{{ item.title }}" class="img-responsive img-thumbnail">
+                  </a>
+                </div>
+                <div class="col-xs-8">
+                  <h4>
+                    <a href="{{ item.url }}"> {{ item.product.title }} </a>
+                    {% unless item.variant.title contains 'Default' %}
+                      <small>{{ item.variant.title }}</small>
+                    {% endunless %}
+                  </h4>
+                  <h3>{{ item.price | money }}</h3>
+                  <p>
+                    <label for="updates_{{ item.id }}">Quantity</label>
+                    <input class="form-control quantity-textbox" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" style="width: 80px;">
+                  </p>
+                  <p>
+                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
+                      <small>Remove</small>
+                    </a>
+                  </p>
                 </div>
               </div>
-            {% endfor %}
-          </div>
+            </div>
+          {% endfor %}
         </div>
       </div>
 

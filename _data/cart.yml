@@ -1,10 +1,28 @@
 items:
-  - title: "Awesome Sneakers"
+  - title: "Product 1"
     product:
-      title: "Awesome Sneakers"
+      title: "Product 1"
     url: "/products/awesome-sneakers"
     price: 19.99
-    img: "https://cdn.shopify.com/s/files/1/0750/5653/products/nike-shoe-black-and-white-isjymet2_medium.jpeg?v=1429521033"
+    img: "https://placeholdit.imgix.net/~text?txtsize=60&txt=PRODUCT&w=300&h=300"
     quantity: 1
+    variant:
+      title: "black"
+  - title: "Product 2"
+    product:
+      title: "Product 2"
+    url: "/products/awesome-sneakers"
+    price: 19.99
+    img: "https://placeholdit.imgix.net/~text?txtsize=60&txt=PRODUCT&w=300&h=300"
+    quantity: 2
+    variant:
+      title: "black"
+  - title: "Product 3"
+    product:
+      title: "Product 3"
+    url: "/products/awesome-sneakers"
+    price: 19.99
+    img: "https://placeholdit.imgix.net/~text?txtsize=60&txt=PRODUCT&w=300&h=300"
+    quantity: 3
     variant:
       title: "black"
