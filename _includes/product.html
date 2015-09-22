@@ -14,7 +14,11 @@
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src1 }}">
 
-  {% include breadcrumb.html type="prod" product=product %}
+  <!-- {% include breadcrumb.html type="prod" product=product %} -->
+
+  <div class="page-header">
+    <h1 itemprop="name">{{ product.title }}</h1>
+  </div>
 
   <div class="product-details">
     <div class="row">
@@ -45,10 +49,6 @@
       </div>
 
       <div class="col-md-6">
-
-        <h1 itemprop="name">{{ product.title }}</h1>
-
-        <hr>
 
         {% unless product.description == "" %}
           <div class="product-description rte text-justify" itemprop="description">
