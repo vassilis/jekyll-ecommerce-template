@@ -4,12 +4,16 @@ title: "News"
 permalink: "/blogs/news/index.html"
 ---
 {% assign blog = site.data.blog %}
+
+<div class="page-header">
+  <h1>{{ blog.title }}</h1>
+</div>
+
 <div class="row">
 
 
   <div class="col-md-9">
 
-      <h1>{{ blog.title }}</h1>
 
     {% comment %}
       Loop through each article in your blog. This is limited to what you set for pagination above.
