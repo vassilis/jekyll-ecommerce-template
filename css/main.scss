@@ -43,7 +43,7 @@
 // }
 
 
-
+@import url("//fonts.googleapis.com/css?family=Oswald:400,700,300");
 // Import partials from `sass_dir` (defaults to `_sass`)
 // @import
 //   "theme"
@@ -82,6 +82,25 @@ body {
     border-radius: 4px;
     overflow: hidden;
     background: url("/img/loader.gif") 50% 50% no-repeat #E7E7E7;
+  }
+  .item-text {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: rgba(#FFF, .8);
+    padding: 0 50px 10px;
+    width: 100%;
+    > * {
+      display: inline-block;
+      float: left;
+      clear: left;
+    }
+  }
+  h2 {
+    font: 700 5em/1 'Oswald', sans-serif;
+  }
+  h3 {
+    font-family: 'Oswald', sans-serif;
   }
 }
 
