@@ -15,7 +15,7 @@ markdown: kramdown
 permalink: pretty
 
 shop:
-  name: "Shop Name"
+  name: "Franklin Shop Theme"
   phone: "111 222 3333"
   email: "email@shop-name.com"
   customer_accounts_enabled: true
