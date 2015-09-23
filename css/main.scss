@@ -100,7 +100,7 @@ body {
     font: 700 5em/1 'Oswald', sans-serif;
   }
   h3 {
-    font-family: 'Oswald', sans-serif;
+    font: 400 2em/1 'Oswald', sans-serif;
   }
 }
 
@@ -120,6 +120,14 @@ div.owl-theme .owl-controls .owl-page span {
   li {
     border-radius: 1px;
   }
+}
+
+.section-head {
+  font: 300 2em/1 'Oswald', sans-serif;
+  margin-bottom: 20px;
+  border-bottom: 1px #DDD solid;
+  padding-bottom: 5px;
+  color: #DDD;
 }
 
 .label-onsale {

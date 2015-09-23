@@ -26,7 +26,8 @@
 
         <div id="ProductPhoto">
           <!-- <img class="product-img-featured img-responsive img-thumbnail" src="{ featured_image.src1 }" alt="{ featured_image.alt }" id="ProductPhotoImg"> -->
-          <img src="http://lorempixel.com/g/555/400/technics?random={{ product.id }}" alt="{{ product.title }}" class="img-responsive img-thumbnail">
+          <!-- <img src="http://lorempixel.com/g/555/400/technics?random={{ product.id }}" alt="{{ product.title }}" class="img-responsive img-thumbnail"> -->
+          <img src="/img/products/md/{{ product.id }}.jpg" alt="{{ product.title }}" class="img-responsive img-thumbnail">
         </div>
 
         {% if product.images.size > 1 %}
@@ -35,10 +36,11 @@
             {% for i in (1..6) %}
               <div class="col-sm-4 product-alt-photos">
                 <div class="thumbnail">
-                  <!-- <a href="{{ image.src1 }}" class="product-single__thumbnail"> -->
-                    <!-- <span class="hidden">{{ image.src }}</span> -->
-                    <img src="{{ image.src3 }}" alt="{{ image.alt }}">
-                    <img src="http://lorempixel.com/g/155/155/technics?random={{ i }}" alt="{{ product.title }}">
+                  <!-- <a href="{ image.src1 }" class="product-single__thumbnail"> -->
+                    <!-- <span class="hidden">{ image.src }</span> -->
+                    <!-- <img src="{ image.src3 }" alt="{{ image.alt }}"> -->
+                    <!-- <img src="http://lorempixel.com/g/155/155/technics?random={{ i }}" alt="{{ product.title }}"> -->
+                    <img src="/img/products/sm/{{ i }}.jpg" alt="{{ product.title }}">
                   <!-- </a> -->
                 </div>
               </div>

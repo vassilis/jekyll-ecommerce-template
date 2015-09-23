@@ -6,21 +6,21 @@ layout: default
 
 <br>
 
-<h3>Featured Products</h3>
+<h3 class="section-head">Featured Products</h3>
 <div class="row">
   {% for product in site.products | limit: 8 %}
     {% include product-grid-item.html product=product %}
   {% endfor %}
 </div>
 
-<h3>Featured Collections</h3>
-
+<h3 class="section-head">Featured Collections</h3>
 <div class="row">
-  {% for i in (1..4) %}
+  {% for i in (15..18) %}
     <div class="col-md-3 col-sm-4 col-xs-6">
       <div class="thumbnail">
         <a href="/collections/test" class="grid-img-outer">
-          <img src="http://lorempixel.com/g/253/253/technics?random={{ i }}" alt="Collection Title">
+          <!-- <img src="http://lorempixel.com/g/253/253/technics?random={{ i }}" alt="Collection Title"> -->
+          <img src="/img/products/sm/{{ i }}.jpg" alt="Collection Title">
         </a>
         <div class="caption text-center">
           <h5>
