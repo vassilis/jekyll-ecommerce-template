@@ -76,6 +76,9 @@ body {
 .navbar-main {
   border: 0;
   background: #DDD;
+  .navbar-brand {
+    font-weight: bold;
+  }
 }
 
 .owl-carousel {
@@ -92,7 +95,7 @@ body {
     position: absolute;
     top: 35px;
     left: 0;
-    background-color: rgba(#FFF, .8);
+    background-color: rgba(#FFF, .6);
     padding: 0 50px 10px;
     width: 100%;
     > * {
