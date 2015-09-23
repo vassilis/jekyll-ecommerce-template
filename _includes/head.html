@@ -1,30 +1,33 @@
 
 
 <head>
-  <!-- Basic page needs ================================================== -->
+  <!-- Basic page needs ==================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <!-- Title and description ================================================== -->
+  <!-- Title and description =============================================== -->
   <title>{{ site.title }}</title>
 
   {% if page_description %}
     <meta name="description" content="{{ page_description | escape }}">
   {% endif %}
 
-  <!-- Helpers ================================================== -->
+  <!-- Helpers ============================================================= -->
   {% include social-meta-tags.html %}
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_primary }}">
 
-  <!-- CSS ================================================== -->
+  <!-- Favicons ============================================================ -->
+  {% include favicon.html %}
+
+  <!-- CSS ================================================================= -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <!-- {{ 'theme.scss.css' | asset_url | stylesheet_tag }} -->
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 
-  <!-- Header hook for plugins ================================================== -->
+  <!-- Header hook for plugins ============================================= -->
   {{ content_for_header }}
 
   <!-- {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }} -->
