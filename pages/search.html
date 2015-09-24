@@ -5,21 +5,18 @@ permalink: "/search/index.html"
 ---
 {% assign search = site.data.search %}
 
-<div class="row">
-  {% include search-bar.html %}
-</div>
-
 {% if search.performed %}
+
   {% comment %}
     paginate method goes here
   {% endcomment %}
 
   {% if search.results_count == 0 %}
-    <div class="alert alert-info">
+    <div class="alert alert-info hidden">
       <h2 class="text-center">Your search for "search term goes here" did not yield any results.</h2>
     </div>
   {% else %}
-    <div class="alert alert-success">
+    <div class="alert alert-success hidden">
       <h2 class="text-center">Your search for "search term goes here" revealed the following:</h2>
     </div>
 

@@ -46,11 +46,14 @@
        {% endfor %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="/search">
-            <span class="glyphicon glyphicon-search"> </span>
-          </a>
-        </li>
+        {% unless page.url contains "/search/" %}
+          <li>
+            <!-- <a href="/search"> -->
+            <a role="button" data-toggle="collapse" href="#search-bar" aria-expanded="false" aria-controls="search-bar">
+              <span class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+        {% endunless %}
         <li>
           <a href="/cart" aria-expanded="false">
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>

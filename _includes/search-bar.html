@@ -1,6 +1,8 @@
-<form action="/search" method="get" class="input-group search-bar" role="search">
-  <div class="col-xs-12">
-    <div class="input-group">
+
+
+<div id="search-bar" class="search-bar {% unless page.url contains '/search/' %} collapse {% endunless %}">
+  <form action="/search" method="get" role="search">
+    <div class="input-group input-group-lg">
       <input type="search" name="q" placeholder="Search" class="form-control" aria-label="Search">
       <span class="input-group-btn">
         <button type="submit" class="btn btn-default">
@@ -8,5 +10,5 @@
         </button>
       </span>
     </div>
-  </div>
-</form>
+  </form>
+</div>
