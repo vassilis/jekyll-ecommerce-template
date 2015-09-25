@@ -1,4 +1,5 @@
 {% assign cart = site.data.cart %}
+<div id="cart" class="cart {% unless page.url contains '/cart/' %} collapse {% endunless %}">
 
 <div class="page-header">
   <h1>Shopping Cart</h1>
@@ -79,3 +80,4 @@
   <p>Your cart is currently empty.</p>
   <p>Continue browsing <a href="/collections/all">here</a>.</p>
 {% endif %}
+</div>

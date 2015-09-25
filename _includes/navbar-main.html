@@ -54,11 +54,13 @@
             </a>
           </li>
         {% endunless %}
-        <li>
-          <a href="/cart" aria-expanded="false">
-            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-          </a>
-        </li>
+        {% unless page.url contains "/cart/" %}
+          <li>
+            <a role="button" data-toggle="collapse" href="#cart" aria-expanded="false" aria-controls="cart">
+              <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+            </a>
+          </li>
+        {% endunless %}
       </ul>
     </div>
   </div>
