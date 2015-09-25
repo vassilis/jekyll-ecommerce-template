@@ -19,7 +19,9 @@
       <main role="main">
         <div class="container">
           {% include search-bar.html %}
-          {% include cart.html %}
+          {% unless page.url contains '/cart/' %}
+            {% include cart.html %}
+          {% endunless %}
           {{ content }}
         </div>
       </main>

@@ -1,83 +1,40 @@
 {% assign cart = site.data.cart %}
 <div id="cart" class="cart {% unless page.url contains '/cart/' %} collapse {% endunless %}">
 
-<div class="page-header">
-  <h1>Shopping Cart</h1>
-</div>
+  <div class="page-header">
+    <h1>Shopping Cart <a href="/cart" class="btn btn-default pull-right">Proceed to checkout</a></h1>
+  </div>
 
-{% if cart.items.size > 0 %}
-
-  <form action="/cart" method="post" novalidate class="cart">
-
-    <div class="row">
-      <div class="col-md-8">
-        <div class="list-group">
-          {% for item in cart.items %}
-            <div class="list-group-item">
-              <div class="row">
-                <div class="col-xs-3">
-                  <a href="{{ item.url }}">
-                    <img src="{{ item.img }}" alt="{{ item.title }}" class="img-responsive img-thumbnail">
-                  </a>
-                </div>
-                <div class="col-xs-8">
-                  <h4>
-                    <a href="{{ item.url }}"> {{ item.product.title }} </a>
-                    {% unless item.variant.title contains 'Default' %}
-                      <small>{{ item.variant.title }}</small>
-                    {% endunless %}
-                  </h4>
-                  <h3>{{ item.price | money }}</h3>
-                  <p>
-                    <label for="updates_{{ item.id }}">Quantity</label>
-                    <input class="form-control quantity-textbox" type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" min="0" style="width: 80px;">
-                  </p>
-                  <p>
-                    <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
-                      <small>Remove</small>
-                    </a>
-                  </p>
-                </div>
-              </div>
+  {% if cart.items.size > 0 %}
+    <div class="list-group">
+      {% for item in cart.items %}
+        <div class="list-group-item">
+          <div class="row">
+            <div class="col-xs-3">
+              <a href="{{ item.url }}">
+                <img src="{{ item.img-small }}" alt="{{ item.title }}" class="img-responsive img-thumbnail">
+              </a>
             </div>
-          {% endfor %}
-        </div>
-      </div>
-
-      <div class="col-md-4">
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-
-            <p>
-              <span class="cart__subtotal-title">Subtotal</span>
-              <span class="h3 cart__subtotal">{{ cart.total_price | money }}</span>
-            </p>
-            <small><em>Shipping & taxes calculated at checkout</em></small>
-            <hr>
-            <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-            <textarea name="note" class="form-control" id="CartSpecialInstructions" rows="5">{{ cart.note }}</textarea>
-            <hr>
-            <p>
-              <input type="button" name="update" class="btn btn-default update-cart" value="Update">
-              <input type="button" name="checkout" class="btn btn-default" value="Checkout">
-            </p>
-
-            {% if additional_checkout_buttons %}
-              {{ content_for_additional_checkout_buttons }}
-            {% endif %}
-
+            <div class="col-xs-6 text-center">
+              <h4>
+                <a href="{{ item.url }}"> {{ item.product.title }} </a> <br>
+                {% unless item.variant.title contains 'Default' %}
+                  <small>{{ item.variant.title }}</small>
+                {% endunless %}
+              </h4>
+            </div>
+            <div class="col-xs-3 text-right">
+              <h3>{{ item.price | money }}</h3>
+            </div>
           </div>
         </div>
-      </div>
+      {% endfor %}
     </div>
-
-  </form>
-{% else %}
-  {% comment %}
-    The cart is empty
-  {% endcomment %}
-  <p>Your cart is currently empty.</p>
-  <p>Continue browsing <a href="/collections/all">here</a>.</p>
-{% endif %}
+    {% comment %}
+      The cart is empty
+    {% endcomment %}
+  {% else %}
+    <p>Your cart is currently empty.</p>
+    <p>Continue browsing <a href="/collections/all">here</a>.</p>
+  {% endif %}
 </div>

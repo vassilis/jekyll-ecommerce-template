@@ -5,6 +5,7 @@ items:
     url: "/products/awesome-sneakers"
     price: 19.99
     img: "https://placeholdit.imgix.net/~text?txtsize=60&txt=PRODUCT&w=300&h=300"
+    img-small: "https://placeholdit.imgix.net/~text?txtsize=20&txt=PRODUCT&w=100&h=100"
     quantity: 1
     variant:
       title: "black"
@@ -14,6 +15,7 @@ items:
     url: "/products/awesome-sneakers"
     price: 19.99
     img: "https://placeholdit.imgix.net/~text?txtsize=60&txt=PRODUCT&w=300&h=300"
+    img-small: "https://placeholdit.imgix.net/~text?txtsize=20&txt=PRODUCT&w=100&h=100"
     quantity: 2
     variant:
       title: "black"
@@ -23,6 +25,7 @@ items:
     url: "/products/awesome-sneakers"
     price: 19.99
     img: "https://placeholdit.imgix.net/~text?txtsize=60&txt=PRODUCT&w=300&h=300"
+    img-small: "https://placeholdit.imgix.net/~text?txtsize=20&txt=PRODUCT&w=100&h=100"
     quantity: 3
     variant:
       title: "black"
