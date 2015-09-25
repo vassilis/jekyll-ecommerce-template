@@ -1,0 +1,47 @@
+{% comment %}
+  If we have past orders, loop through each one
+{% endcomment %}
+{% comment %}
+  pagnation for orders goes here
+{% endcomment %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Order History</h4>
+      <hr>
+      <div class="row">
+        <div class="col-xs-2 text-center">Order</div>
+        <div class="col-xs-2 text-center">Date</div>
+        <div class="col-xs-3 text-center">Payment Status</div>
+        <div class="col-xs-3 text-center">Fullfillment Status</div>
+        <div class="col-xs-2 text-center">Total</div>
+      </div>
+    </div>
+  {% if customer.orders.size != 0 %}
+
+
+    <div class="list-group">
+      {% for order in customer.orders %}
+        <a href="{{ order.customer_url }}" class="list-group-item">
+          <div class="row">
+            <div class="col-xs-2 text-center">{{ order.name }}</div>
+            <div class="col-xs-2 text-center">{{ order.created_at }}</div>
+            <div class="col-xs-3 text-center">{{ order.financial_status_label }}</div>
+            <div class="col-xs-3 text-center">{{ order.fulfillment_status_label }}</div>
+            <div class="col-xs-2 text-center">{{ order.total_price | money }}</div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% else %}
+        <h4 class="text-center">
+          You have not placed any orders yet
+        </h4>
+    {% endif %}
+
+    {% if paginate.pages > 1 %}
+      <div class="panel-footer text-center">
+        {% include 'pagination-custom' %}
+      </div>
+    {% endif %}
+    </div>
