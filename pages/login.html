@@ -26,8 +26,8 @@ permalink: "/account/login/index.html"
               </div>
 
                 <p>
-                  <a href="#recover" id="RecoverPassword">Forgot your password?</a>
-                  <a class="pull-right" href="http://three99-test.myshopify.com">Return to Store</a>
+                  <a href="#" onclick="toggleRecoverForm();" id="RecoverPassword">Forgot your password?</a>
+                  <a class="pull-right" href="/">Return to Store</a>
                 </p>
 
 
@@ -39,13 +39,10 @@ permalink: "/account/login/index.html"
             </form>
     </div>
 
-    {% comment %}
-      JS shows/hides this form in timber.loginForms()
-    {% endcomment %}
     <div id="RecoverPasswordForm" style="display: none;">
 
-      <h2>{{ 'customer.recover_password.title' | t }}</h2>
-      <p>{{ 'customer.recover_password.subtext' | t }}</p>
+      <h2>Reset your password</h2>
+      <p>We will send you an email to reset your password.</p>
 
       <form accept-charset="UTF-8" action="/account/recover" method="post" _lpchecked="1">
         <input name="form_type" type="hidden" value="recover_customer_password"><input name="utf8" type="hidden" value="✓">
@@ -57,7 +54,7 @@ permalink: "/account/login/index.html"
 
         <p>
           <input type="button" class="btn btn-primary" value="Submit">
-          <button type="button" id="HideRecoverPasswordLink" class="btn btn-default pull-right">Cancel</button>
+          <button type="button" onclick="toggleRecoverForm();" id="HideRecoverPasswordLink" class="btn btn-default pull-right">Cancel</button>
         </p>
       </form>
 
