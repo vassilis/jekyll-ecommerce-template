@@ -1,1 +1,1 @@
-# shopify-theme-template
+# jekyll ecommerce template
