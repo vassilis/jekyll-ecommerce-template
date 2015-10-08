@@ -1,0 +1,30 @@
+
+<div class="instagram-images"></div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    // faulty url
+    // var URL = "http://instagram.com/konnagiap/media";
+
+    // whateverorigin.org app service
+    var URL = "http://whateverorigin.org/get?url=" + encodeURIComponent("http://instagram.com/konnagiap/media");
+    jQuery(function ($) {
+        $.ajax({
+            url: URL,
+            dataType: "jsonp", // this is important
+            cache: false,
+            success: function (response) {
+                var data = response.contents;
+                for (var i = 0; i < data.items.length; i++) {
+                    var image = '<img src="'+data.items[i].images.low_resolution.url+'" alt="" style="max-width: 100px; margin: 2px;"/>';
+                    $(image).appendTo(".instagram-images");
+                }
+            },
+            error: function () {
+                var error = "<p>error processing ajax request</p>";
+                $(error).appendTo(".instagram-images");
+            }
+        });
+    });
+  });
+</script>
